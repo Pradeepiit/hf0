@@ -1,7 +1,7 @@
-# hf0
-## hf_0:  A hybrid pitch extraction method for multimodal voice
+# **hf0**
+## **hf0**:  A hybrid pitch extraction method for multimodal voice
 
-hf0 is a monophonic pitch tracker based on a shallow convolutional neural network operating over the time-domain normalized autocorrelation function. $hf_0$ works reliabilty over monophonic speech, monophonic songs, emotional speech, para-linguistic speech and infant cry signals. $hf_0$ is robust to varied noises and comparable against the state-of-the-art methods. 
+**hf0** is a monophonic pitch tracker based on a shallow convolutional neural network operating over the time-domain normalized autocorrelation function. $hf_0$ works reliabilty over monophonic speech, monophonic songs, emotional speech, para-linguistic speech and infant cry signals. $hf_0$ is robust to varied noises and comparable against the state-of-the-art methods. 
 
 ## Dependencies
 
@@ -11,7 +11,7 @@ This code requires was tested in `MATLAB 2018a` version. The [MIR Toolbox 1.7.2]
 Execute `demo.m` file by replacing `filename` variable with the respective audio file.
 
 ## Sample Experiments
-Some experiments are performed against the standard [pYIN](https://ieeexplore.ieee.org/document/6853678) and [CREPE](https://arxiv.org/abs/1802.06182) methods. As pitch contour is not available for all the audio samples, the estimated pitch is overlayed over the spectrogram.
+Some experiments are conducted over audio files from varied datasets and **hf0** is compared with the standard [pYIN](https://ieeexplore.ieee.org/document/6853678) and [CREPE](https://arxiv.org/abs/1802.06182) based pitch estimation methods. As pitch contour is not available for all the audio samples, the estimated pitch is superimposed over the spectrogram.
 
 
 ## Pitch Contour of a neutral speech taken from [CMU-ARCTIC](http://www.festvox.org/cmu_arctic/) Dataset

@@ -10,8 +10,111 @@ This code requires was tested in `MATLAB 2018a` version. The [MIR Toolbox 1.7.2]
 ## Execution of hf0
 Execute `demo.m` file by replacing `filename` variable with the respective audio file.
 
+## Calculation of Number of Parameters in CREPE vs Proposed method
+
+The Proposed method uses one-sixth of the parameters used in CREPE. The detailed layer-by-layer analysis is provided below. The activation, max-pooling and dropout layers consume zero parameters. The parameters in fully connected layer depend on the input and the output neurons which are updated in the table as width and height of the receptive field. The bias term included for all the layers.
+
+<table class="tg">
+  <tr>
+    <th class="tg-amwm" colspan="5">CREPE</th>
+  </tr>
+  <tr>
+    <td class="tg-amwm">Layers</td>
+    <td class="tg-amwm">No. of Filters</td>
+    <td class="tg-amwm">Width of  the<br>Receptive Field</td>
+    <td class="tg-amwm">Height of the <br>Receptive Field</td>
+    <td class="tg-amwm">No of Parameters</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv1</td>
+    <td class="tg-baqh">1024</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">512</td>
+    <td class="tg-baqh">525312</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv2</td>
+    <td class="tg-baqh">128</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">8320</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv3</td>
+    <td class="tg-baqh">128</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">8320</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv4</td>
+    <td class="tg-baqh">128</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">8320</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv5</td>
+    <td class="tg-baqh">256</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">16640</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv6</td>
+    <td class="tg-baqh">512</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">33280</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Softmax</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">2048</td>
+    <td class="tg-baqh">360</td>
+    <td class="tg-baqh">737281</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh" align="center" colspan="4">Total number of parameters<br></td>
+    <td class="tg-baqh">1337473</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh" colspan="5"></td>
+  </tr>
+  <tr>
+    <th class="tg-amwm" colspan="5">Proposed Method</th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv1</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">3</td>
+    <td class="tg-baqh">3</td>
+    <td class="tg-baqh">640</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Conv2</td>
+    <td class="tg-baqh">64</td>
+    <td class="tg-baqh">3</td>
+    <td class="tg-baqh">3</td>
+    <td class="tg-baqh">640</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">Softmax</td>
+    <td class="tg-baqh">1</td>
+    <td class="tg-baqh">25600</td>
+    <td class="tg-baqh">9</td>
+    <td class="tg-baqh">230401</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh" align="center" colspan="4">Total number of parameters</td>
+    <td class="tg-baqh">231681</td>
+  </tr>
+</table>
+
 ## Sample Experiments
 Some experiments are conducted over audio files from varied datasets and **hf0** is compared with the standard [pYIN](https://ieeexplore.ieee.org/document/6853678) and [CREPE](https://arxiv.org/abs/1802.06182) based pitch estimation methods. As pitch contour is not available for all the audio samples, the estimated pitch is superimposed over the spectrogram.
+
+
 
 
 ## Pitch Contour of a neutral speech taken from [CMU-ARCTIC](http://www.festvox.org/cmu_arctic/) Dataset
